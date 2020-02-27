@@ -6,7 +6,7 @@ import Section from '../layouts/Section'
 import data from '../data/contact'
 
 const Social = () => {
-    const [count, setState] = useState(4)
+    const [count, setState] = useState(4);
 
     useEffect(() => {
         setState(Math.round(16 / data.length))
@@ -27,6 +27,6 @@ const Social = () => {
             </Grid>
         </Section>
     );
-}
+};
 
 export default Social

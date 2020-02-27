@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-
 import { Segment } from 'semantic-ui-react'
+import PropTypes from 'prop-types'
 
 import ScrollableAnchor from 'react-scrollable-anchor'
 

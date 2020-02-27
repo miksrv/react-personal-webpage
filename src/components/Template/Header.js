@@ -7,13 +7,13 @@ const Header = () => {
     const [activeItem, handleItemClick] = useState('about');
 
     window.addEventListener("hashchange", () => {
-        let hash = window.location.hash.substring(1)
+        let hash = window.location.hash.substring(1);
 
         handleItemClick(hash)
-    })
+    });
 
     return (
-        <Menu fixed={'top'} color={'green'} secondary inverted>
+        <Menu fixed={'top'} color={'green'} secondary  inverted>
             <Container>
                 {data.map((item, key) => (
                     <Menu.Item
@@ -29,6 +29,6 @@ const Header = () => {
             </Container>
         </Menu>
     )
-}
+};
 
-export default Header;
+export default Header
