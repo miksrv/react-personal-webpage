@@ -19,6 +19,6 @@ const data = [
     label: 'GitHub',
     icon: 'github'
   }
-];
+]
 
-export default data;
+export default data

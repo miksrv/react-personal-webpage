@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-import { Grid, Header, Divider, Image, Responsive } from "semantic-ui-react"
+import { Grid, Divider, Image, Responsive } from 'semantic-ui-react'
 
 import Section from '../layouts/Section'
 
@@ -41,15 +41,15 @@ const About = () => {
                             <Grid.Row>
                                 <Grid.Column className='stat-key' width={6}>My age</Grid.Column>
                                 <Grid.Column className='stat-val' width={10}>{age}</Grid.Column>
-                                <Grid.Column className='stat-key' width={6}>Current city</Grid.Column>
-                                <Grid.Column className='stat-val' width={10}>Russian Federation, Orenburg</Grid.Column>
-                                <Grid.Column className='stat-key' width={6}>Last updated at</Grid.Column>
-                                <Grid.Column className='stat-val' width={10}>20.02.2020</Grid.Column>
+                                <Grid.Column className='stat-key' width={6}>Location</Grid.Column>
+                                <Grid.Column className='stat-val' width={10}>Russia, Orenburg</Grid.Column>
+                                <Grid.Column className='stat-key' width={6}>Last updated</Grid.Column>
+                                <Grid.Column className='stat-val' width={10}>31.03.2020</Grid.Column>
                             </Grid.Row>
                         </Grid>
                         <p>I develop websites, I write programs, I like to do something myself. I am fond of astronomy, photography, tourism, travel and radio electronics. There are several own micro-projects on which I can talk with pleasure.</p>
                         <p>Always open to communication with interesting people :)</p>
-                        <p>Find my contacts and contact at any time by clicking on the links below or through feedback form.</p>
+                        <p>To contact me, you can use any of the convenient methods below.</p>
                     </Grid.Column>
                 </Grid.Row>
             </Responsive>

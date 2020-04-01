@@ -10,7 +10,7 @@ class Section extends Component {
         const { id, children, ...props } = this.props;
 
         return (
-            <Segment className="animate-up segment" {...props}>
+            <Segment className="animate-up" {...props}>
                 <ScrollableAnchor id={id}>
                     <div>{children}</div>
                 </ScrollableAnchor>

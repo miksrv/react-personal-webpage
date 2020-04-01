@@ -10,7 +10,7 @@ const Social = () => {
 
     useEffect(() => {
         setState(Math.round(16 / data.length))
-    }, []);
+    }, [])
 
     return (
         <Section id='social' color='green' inverted={true}>
@@ -26,7 +26,7 @@ const Social = () => {
                 </Grid.Row>
             </Grid>
         </Section>
-    );
-};
+    )
+}
 
 export default Social

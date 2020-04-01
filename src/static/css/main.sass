@@ -1,5 +1,25 @@
-$font-stack: sans-serif
-$main-color: #3d4451
+$font-stack: Montserrat
+$main-color: #192A3E
+
+@font-face
+    font-family: "Montserrat"
+    src : url('../fonts/Montserrat-Regular.woff')
+    font-weight: 400
+
+@font-face
+    font-family: "Montserrat"
+    src : url('../fonts/Montserrat-Medium.woff')
+    font-weight: 500
+
+@font-face
+    font-family: "Montserrat"
+    src : url('../fonts/Montserrat-Bold.woff')
+    font-weight: 700
+
+@font-face
+    font-family: "Montserrat"
+    src : url('../fonts/Montserrat-ExtraBold.woff')
+    font-weight: 900
 
 *:not(.icon)
     outline: none
@@ -7,8 +27,9 @@ $main-color: #3d4451
 
 body
     color: $main-color
-    font-size: 14px
-    line-height: 1.5
+    font-weight-color: $main-color
+    font-weight: 400
+    line-height: 2
     background-color: #efefef
     margin: 0
     background-image: url('/images/background-pattern.png')
@@ -22,6 +43,7 @@ body
     transition: opacity 400ms ease-out
     background: rgba(224, 224, 224, 0.7)
     height: 100%
+    min-height: 100vh
     padding-top: 8vh
     padding-bottom: 1vh
 
@@ -31,6 +53,9 @@ body
 .ui.container
     max-width: 900px !important
 
+.ui.segment:first-child
+    margin-top: 3vh
+
 .ui.segment, .ui.segments .segment
     padding: 2em !important
 
@@ -38,6 +63,12 @@ body
     text-transform: uppercase !important
     font-size: .9em !important
     margin: .5em 0 !important
+
+// Hack for mobile menu container padding
+@media only screen and (max-width: 767px)
+    .ui.menu > .ui.container
+        margin-left: 1em !important
+        margin-right: 1em !important
 
 @import _animate
 @import _header

@@ -19,7 +19,7 @@ const Skills = () => {
                 </Grid.Row>
             </Grid>
         </Section>
-    );
-};
+    )
+}
 
 export default Skills

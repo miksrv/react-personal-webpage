@@ -21,7 +21,7 @@ const data = [
   },
   {
     name: 'SCSS / Sass',
-    level: 50
+    level: 80
   },
   {
     name: 'PostgreSQL / MySQL / SQLite',
@@ -39,6 +39,6 @@ const data = [
     name: 'Linux / bash script',
     level: 64
   },
-];
+]
 
-export default data;
+export default data

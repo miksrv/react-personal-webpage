@@ -7,6 +7,6 @@ const data = [
     link: 'skills',
     name: 'Skills'
   }
-];
+]
 
 export default data
