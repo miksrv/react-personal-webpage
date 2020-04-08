@@ -15,6 +15,8 @@ import Header from './layouts/Header'
 import Main from './pages/Main'
 import Blog from './pages/Blog'
 
+import 'moment/locale/ru'
+
 const store = createStore(combineReducers(reducers), applyMiddleware(thunk))
 
 ReactDOM.render(

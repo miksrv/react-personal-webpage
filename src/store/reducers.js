@@ -1,5 +1,5 @@
-import personal from './personal/reducer'
+import profile from './profile/reducer'
 
 export {
-    personal
+    profile
 }
