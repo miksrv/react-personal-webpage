@@ -29,7 +29,7 @@ body
     color: $main-color
     font-weight-color: $main-color
     font-weight: 400
-    line-height: 2
+    line-height: 1.7rem
     background-color: #efefef
     margin: 0
     background-image: url('/images/background-pattern.png')
@@ -47,11 +47,14 @@ body
     padding-top: 8vh
     padding-bottom: 1vh
 
+.clear
+    clear: both
+
 .segment
     margin-bottom: 5vh !important
 
 .ui.container
-    max-width: 900px !important
+    max-width: 800px !important
 
 .ui.segment:first-child
     margin-top: 3vh
@@ -76,3 +79,9 @@ body
 @import _about
 @import _social
 @import _skills
+
+.vk-text
+    white-space: pre-wrap
+
+.ReactGridGallery
+    margin-top: 20px

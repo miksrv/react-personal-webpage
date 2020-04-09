@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Container, Segment, Dimmer, Loader } from 'semantic-ui-react'
+import { Container, Segment, Dimmer, Loader, Icon } from 'semantic-ui-react'
 import Gallery from 'react-grid-gallery'
 
 import moment from 'moment'
@@ -29,8 +29,10 @@ class Blog extends Component {
                     <Container>
                         {vk_posts.items.map((item, key) => (
                             <Segment className="animate-up">
-                                {item.text} {moment.unix(item.date).format("DD.MM.Y, H:mm:ss")}
+                                <div><Icon name='like' /> {item.likes.count} | {moment.unix(item.date).format("DD.MM.Y, H:mm:ss")}</div>
+                                <div className="vk-text">{item.text}</div>
                                 {this.makeImages(item.attachments)}
+                                <div className="clear"></div>
                             </Segment>
                         ))}
                     </Container>
@@ -56,15 +58,21 @@ class Blog extends Component {
         sources.map((item, key) => (
             result.push({
                 src: item.photo.photo_1280,
-                thumbnail: item.photo.photo_130,
-                //     thumbnailWidth: 320,
-                //     thumbnailHeight: 174,
+                thumbnail: item.photo.photo_604,
+                thumbnailWidth: 604,
+                thumbnailHeight: 402,
                 caption: item.photo.text
             })
         ))
 
         if ( ! _.isEmpty(result)) {
-            return <Gallery images={result} />
+            return <Gallery
+                images={result}
+                enableImageSelection={false}
+                showCloseButton={false}
+                backdropClosesModal={true}
+                showImageCount={false}
+            />
         }
     }
 }
