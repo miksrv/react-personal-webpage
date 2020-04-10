@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Container, Segment, Dimmer, Loader, Icon } from 'semantic-ui-react'
+import { Container, Segment, Dimmer, Loader, Icon, Pagination, Image } from 'semantic-ui-react'
 import Gallery from 'react-grid-gallery'
 
 import moment from 'moment'
@@ -9,32 +9,58 @@ import * as actions from '../store/profile/actions'
 
 import _ from 'lodash'
 
+const POST_ON_PAGE = 2
+
 class Blog extends Component {
+
+    state = {
+        activePage: 1
+    }
+
     componentDidMount() {
         const { dispatch } = this.props
 
         moment.locale('ru')
 
-        dispatch(actions.fetchVKPostData())
+        dispatch(actions.fetchVKPostData(0, POST_ON_PAGE))
     }
 
     render() {
         const { vk_posts } = this.props
+        const { activePage } = this.state
 
-        console.log('vk_posts', vk_posts);
+        const pageCount = ! _.isEmpty(vk_posts) ? (vk_posts.count / POST_ON_PAGE) : 0
 
         return (
             <div id='wrapper'>
                 { ! _.isEmpty(vk_posts) ? (
                     <Container>
                         {vk_posts.items.map((item, key) => (
-                            <Segment className="animate-up">
-                                <div><Icon name='like' /> {item.likes.count} | {moment.unix(item.date).format("DD.MM.Y, H:mm:ss")}</div>
-                                <div className="vk-text">{item.text}</div>
+                            <Segment className="animate-up" key={key}>
+                                <div className='vk-profile'>
+                                    <Image src='/images/avatar.jpg' avatar />
+                                    <div>
+                                        <div>Misha Perevalov</div>
+                                        <div className='vk-info'><Icon name='like' /> {item.likes.count} &middot; {moment.unix(item.date).format("DD MMMM Y в H:mm")}</div>
+                                    </div>
+                                </div>
+                                <p className="vk-text">{item.text}</p>
                                 {this.makeImages(item.attachments)}
                                 <div className="clear"></div>
                             </Segment>
                         ))}
+                        <div className='pagination-container'>
+                            <Pagination
+                                defaultActivePage={activePage}
+                                totalPages={pageCount}
+                                onPageChange={this.handlePaginationChange}
+                                ellipsisItem={null}
+                                prevItem={null}
+                                nextItem={null}
+                                pointing
+                                secondary
+                            />
+                        </div>
                     </Container>
                 ) : (
                     <Dimmer active>
@@ -43,6 +69,16 @@ class Blog extends Component {
                 )}
             </div>
         )
+    }
+
+    handlePaginationChange = (e, { activePage }) => {
+        const { dispatch } = this.props
+
+        dispatch(actions.fetchVKPostData((activePage * POST_ON_PAGE) - POST_ON_PAGE, POST_ON_PAGE))
+
+        this.setState({ activePage })
+
+        window.scrollTo(0, 0)
     }
 
     makeImages = data => {
@@ -57,10 +93,10 @@ class Blog extends Component {
 
         sources.map((item, key) => (
             result.push({
-                src: item.photo.photo_1280,
+                src: (typeof item.photo.photo_1280 !== 'undefined' ? item.photo.photo_1280 : item.photo.photo_604),
                 thumbnail: item.photo.photo_604,
-                thumbnailWidth: 604,
-                thumbnailHeight: 402,
+                thumbnailWidth: item.photo.width,
+                thumbnailHeight: item.photo.height,
                 caption: item.photo.text
             })
         ))
