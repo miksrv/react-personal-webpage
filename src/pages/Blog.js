@@ -36,7 +36,7 @@ class Blog extends Component {
                 { ! _.isEmpty(vk_posts) ? (
                     <Container>
                         {vk_posts.items.map((item, key) => (
-                            <Segment className="animate-up" key={key}>
+                            <Segment key={key}>
                                 <div className='vk-profile'>
                                     <Image src='/images/avatar.jpg' avatar />
                                     <div>

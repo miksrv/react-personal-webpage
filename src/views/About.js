@@ -29,7 +29,7 @@ const About = () => {
     }, [])
 
     return (
-        <Section id='about'>
+        <Section>
             <Responsive as={Grid} fireOnMount onUpdate={handleUpdateWidth} className='about'>
                 <Grid.Row className={mobile}>
                     <Grid.Column computer={6} mobile={16}>

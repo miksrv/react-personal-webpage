@@ -7,7 +7,7 @@ import data from '../data/skills'
 
 const Skills = () => {
     return (
-        <Section id='skills'>
+        <Section>
             <Grid>
                 <Grid.Row>
                     {data.map((item, key) => (
