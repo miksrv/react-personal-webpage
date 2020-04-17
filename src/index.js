@@ -14,6 +14,7 @@ import './static/css/main.sass'
 import Header from './layouts/Header'
 import Main from './pages/Main'
 import Blog from './pages/Blog'
+import Error404 from './pages/Error404'
 
 import 'moment/locale/ru'
 
@@ -24,7 +25,8 @@ ReactDOM.render(
         <BrowserRouter>
             <Header />
             <Route exact path="/" component={Main} />
-            <Route exact path="/blog" component={Blog} />
+            <Route path="/blog" component={Blog} />
+            <Route component={Error404} />
         </BrowserRouter>
     </Provider>
     , document.getElementById('root')
