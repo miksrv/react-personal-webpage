@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import { BrowserRouter, Route, Redirect } from 'react-router-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { createStore, applyMiddleware, combineReducers } from 'redux'
 import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
@@ -24,10 +24,11 @@ ReactDOM.render(
     <Provider store={store}>
         <BrowserRouter>
             <Header />
-            <Route exact path="/" component={Main} />
-            <Route path="/blog" component={Blog} />
-            <Route path="/404" component={Error404} />
-            <Redirect to="/404" />
+            <Switch>
+                <Route exact path="/" component={Main} />
+                <Route path="/blog" component={Blog} />
+                <Route component={Error404} />
+            </Switch>
         </BrowserRouter>
     </Provider>
     , document.getElementById('root')
