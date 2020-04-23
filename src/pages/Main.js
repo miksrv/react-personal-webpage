@@ -7,6 +7,10 @@ import Social from '../views/Social'
 import Skills from '../views/Skills'
 
 class Main extends Component {
+    componentDidMount() {
+        document.title = 'Hi i\'m - Misha'
+    }
+
     render() {
         return (
             <div id='wrapper'>

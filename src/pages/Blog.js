@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Container, Segment, Dimmer, Loader, Icon, Pagination, Image } from 'semantic-ui-react'
+import {Container, Segment, Dimmer, Loader, Icon, Pagination, Image, Header} from 'semantic-ui-react'
 import Gallery from 'react-grid-gallery'
 
 import moment from 'moment'
@@ -20,6 +20,8 @@ class Blog extends Component {
     componentDidMount() {
         const { dispatch } = this.props
 
+        document.title = 'My personal blog'
+
         moment.locale('ru')
 
         dispatch(actions.fetchVKPostData(0, POST_ON_PAGE))
@@ -35,6 +37,9 @@ class Blog extends Component {
             <div id='wrapper'>
                 { ! _.isEmpty(vk_posts) ? (
                     <Container>
+                        <Header className='section-header' as='h1'>
+                            My personal blog
+                        </Header>
                         {vk_posts.items.map((item, key) => (
                             <Segment key={key}>
                                 <div className='vk-profile'>

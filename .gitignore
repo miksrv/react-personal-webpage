@@ -5,6 +5,9 @@
 /.pnp
 .pnp.js
 
+# portfolio images
+/public/images/portfolio/*
+
 # testing
 /coverage
 

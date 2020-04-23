@@ -13,10 +13,12 @@ import './static/css/main.sass'
 
 import Header from './layouts/Header'
 import Main from './pages/Main'
+import Portfolio from './pages/Portfolio'
 import Blog from './pages/Blog'
 import Error404 from './pages/Error404'
 
 import 'moment/locale/ru'
+
 
 const store = createStore(combineReducers(reducers), applyMiddleware(thunk))
 
@@ -26,6 +28,7 @@ ReactDOM.render(
             <Header />
             <Switch>
                 <Route exact path="/" component={Main} />
+                <Route path="/portfolio" component={Portfolio} />
                 <Route path="/blog" component={Blog} />
                 <Route component={Error404} />
             </Switch>

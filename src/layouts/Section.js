@@ -8,7 +8,7 @@ class Section extends Component {
         const { id, children, ...props } = this.props;
 
         return (
-            <Segment className="animate-up" {...props}>
+            <Segment className="" {...props}>
                 {children}
             </Segment>
         );

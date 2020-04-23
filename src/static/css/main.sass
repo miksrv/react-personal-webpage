@@ -52,6 +52,11 @@ body
 .segment
     margin-bottom: 5vh !important
 
+.section-header
+    font-weight: 100 !important
+    text-align: center
+    margin-top: 3vh !important
+
 .ui.container
     max-width: 800px !important
 
@@ -72,7 +77,6 @@ body
         margin-left: 1em !important
         margin-right: 1em !important
 
-@import _animate
 @import _header
 
 @import _about
@@ -96,7 +100,41 @@ body
     white-space: pre-wrap
     margin-top: 2vh
 
+.filter-group
+    margin: 2vh 0 4vh
+    text-align: center
 
+.portfolio
+    .column
+        padding: .5rem !important
+
+    .container
+        width: 100%
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.24)
+        background: #FFF
+        padding: 4px
+        cursor: pointer
+
+    .info
+        padding: 2vh
+
+        h4
+            font-weight: 100
+            font-size: 14px
+
+        img
+            width: 100%
+
+        p
+            margin-top: 2vh
+            font-size: 13px
+
+.ui.move.down.reveal:hover>.visible.content
+    transform: translateY(105%) !important
+
+.my-gallery-class
+    img
+        width: 160px
 
 .ReactGridGallery
     margin-top: 20px
