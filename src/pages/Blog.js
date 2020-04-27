@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import {Container, Segment, Dimmer, Loader, Icon, Pagination, Image, Header} from 'semantic-ui-react'
+import { Container, Segment, Dimmer, Loader, Icon, Image, Header, Button } from 'semantic-ui-react'
 import Gallery from 'react-grid-gallery'
 
 import moment from 'moment'
@@ -14,7 +14,10 @@ const POST_ON_PAGE = 4
 class Blog extends Component {
 
     state = {
-        activePage: 1
+        activePage: 1,
+        postsData: [],
+        postsCount: 0,
+        btnLoading: false
     }
 
     componentDidMount() {
@@ -27,20 +30,31 @@ class Blog extends Component {
         dispatch(actions.fetchVKPostData(0, POST_ON_PAGE))
     }
 
-    render() {
-        const { vk_posts } = this.props
-        const { activePage } = this.state
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        const { postsData, activePage } = this.state
 
-        const pageCount = ! _.isEmpty(vk_posts) ? Math.ceil(vk_posts.count / POST_ON_PAGE) : 0
+        if (_.isEmpty(this.state.postsData) || this.props.vk_posts.items !== prevProps.vk_posts.items) {
+            this.setState({
+                postsData: postsData.concat(this.props.vk_posts.items),
+                postsCount: this.props.vk_posts.count,
+                btnLoading: false
+            })
+        }
+    }
+
+    render() {
+        const { activePage, postsData, postsCount, btnLoading } = this.state
+
+        const pageCount = ! _.isEmpty(postsData) ? Math.ceil(postsCount / POST_ON_PAGE) : 0
 
         return (
             <div id='wrapper'>
-                { ! _.isEmpty(vk_posts) ? (
+                { ! _.isEmpty(postsData) ? (
                     <Container>
                         <Header className='section-header' as='h1'>
                             My personal blog
                         </Header>
-                        {vk_posts.items.map((item, key) => (
+                        {postsData.map((item, key) => (
                             <Segment key={key}>
                                 <div className='vk-profile'>
                                     <Image src='/images/avatar.jpg' avatar />
@@ -54,18 +68,15 @@ class Blog extends Component {
                                 <div className="clear"></div>
                             </Segment>
                         ))}
-                        <div className='pagination-container'>
-                            <Pagination
-                                defaultActivePage={activePage}
-                                totalPages={pageCount}
-                                onPageChange={this.handlePaginationChange}
-                                ellipsisItem={null}
-                                prevItem={null}
-                                nextItem={null}
-                                pointing
-                                secondary
-                            />
-                        </div>
+                        <Button
+                            fluid
+                            color='green'
+                            onClick={this.handlePaginationChange}
+                            disabled={(activePage >= pageCount || btnLoading)}
+                            loading={btnLoading}
+                        >
+                            Load more
+                        </Button>
                     </Container>
                 ) : (
                     <Dimmer active>
@@ -76,14 +87,17 @@ class Blog extends Component {
         )
     }
 
-    handlePaginationChange = (e, { activePage }) => {
+    handlePaginationChange = () => {
         const { dispatch } = this.props
+        const { activePage } = this.state
+        const pageCurrent = activePage + 1
 
-        dispatch(actions.fetchVKPostData((activePage * POST_ON_PAGE) - POST_ON_PAGE, POST_ON_PAGE))
+        this.setState({
+            activePage: pageCurrent,
+            btnLoading: true
+        })
 
-        this.setState({ activePage })
-
-        window.scrollTo(0, 0)
+        dispatch(actions.fetchVKPostData((pageCurrent * POST_ON_PAGE) - POST_ON_PAGE, POST_ON_PAGE))
     }
 
     makeImages = data => {
