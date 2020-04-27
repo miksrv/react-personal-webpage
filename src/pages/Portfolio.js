@@ -52,9 +52,9 @@ class Portfolio extends React.Component {
             })
             .map((item, key) => {
                 return (
-                    <Grid.Column>
+                    <Grid.Column key={key}>
                         <Animated animationIn='rotateIn' animationInDuration={500} animationOut='rotateOut' isVisible={this.state.animate}>
-                            <Reveal animated='move down' className='container' onClick={() => this.clickHandler(item.image, item.link)} key={key}>
+                            <Reveal animated='move down' className='container' onClick={() => this.clickHandler(item.image, item.link)} >
                                 <Reveal.Content visible>
                                     <Image src={IMG_DIR + item.image} />
                                 </Reveal.Content>

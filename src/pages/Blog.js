@@ -9,7 +9,7 @@ import * as actions from '../store/profile/actions'
 
 import _ from 'lodash'
 
-const POST_ON_PAGE = 2
+const POST_ON_PAGE = 4
 
 class Blog extends Component {
 
@@ -31,7 +31,7 @@ class Blog extends Component {
         const { vk_posts } = this.props
         const { activePage } = this.state
 
-        const pageCount = ! _.isEmpty(vk_posts) ? (vk_posts.count / POST_ON_PAGE) : 0
+        const pageCount = ! _.isEmpty(vk_posts) ? Math.ceil(vk_posts.count / POST_ON_PAGE) : 0
 
         return (
             <div id='wrapper'>
