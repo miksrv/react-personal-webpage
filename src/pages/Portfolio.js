@@ -2,6 +2,7 @@ import * as React from 'react'
 import { Grid, Image, Button, Reveal, Container, Header, Label } from 'semantic-ui-react'
 import { Animated } from 'react-animated-css' // https://digital-flowers.github.io/react-animated-css.html
 import Lightbox from 'react-image-lightbox'
+import LazyLoad from 'react-lazyload'
 
 import 'react-image-lightbox/style.css'
 
@@ -56,7 +57,9 @@ class Portfolio extends React.Component {
                         <Animated animationIn='rotateIn' animationInDuration={500} animationOut='rotateOut' isVisible={this.state.animate}>
                             <Reveal animated='move down' className='container' onClick={() => this.clickHandler(item.image, item.link)} >
                                 <Reveal.Content visible>
-                                    <Image src={IMG_DIR + item.image} />
+                                    <LazyLoad height={190}>
+                                        <Image src={IMG_DIR + item.image} />
+                                    </LazyLoad>
                                 </Reveal.Content>
                                 <Reveal.Content hidden>
                                     <div className='info'>

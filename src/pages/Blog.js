@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Container, Segment, Dimmer, Loader, Icon, Image, Header, Button } from 'semantic-ui-react'
-import Gallery from 'react-grid-gallery'
+import Gallery from 'react-photo-gallery'
+import Lightbox from 'react-image-lightbox'
+import LazyLoad from 'react-lazyload'
 
 import moment from 'moment'
 
@@ -17,7 +19,9 @@ class Blog extends Component {
         activePage: 1,
         postsData: [],
         postsCount: 0,
-        btnLoading: false
+        btnLoading: false,
+        photoIndex: 0,
+        isOpen: false
     }
 
     componentDidMount() {
@@ -43,7 +47,7 @@ class Blog extends Component {
     }
 
     render() {
-        const { activePage, postsData, postsCount, btnLoading } = this.state
+        const { activePage, postsData, postsCount, btnLoading, isOpen, photoIndex } = this.state
 
         const pageCount = ! _.isEmpty(postsData) ? Math.ceil(postsCount / POST_ON_PAGE) : 0
 
@@ -77,12 +81,19 @@ class Blog extends Component {
                         >
                             Load more
                         </Button>
+                        <br />
                     </Container>
                 ) : (
                     <Dimmer active>
                         <Loader>Загрузка</Loader>
                     </Dimmer>
                 )}
+                {isOpen && (
+                    <Lightbox
+                        mainSrc={photoIndex}
+                        onCloseRequest={() => this.setState({ isOpen: false })}
+                    />
+                 )}
             </div>
         )
     }
@@ -101,34 +112,30 @@ class Blog extends Component {
     }
 
     makeImages = data => {
-        const result = []
-        const sources = data.filter(function(item) {
-            if (item.type !== "photo") {
-                return false
-            }
-            return true
+        const photos  = []
 
-        }).map(function(item) { return item })
-
-        sources.map((item, key) => (
-            result.push({
+        data.filter(function(item) {
+            return item.type === "photo"
+        }).map(item => (
+            photos.push({
                 src: (typeof item.photo.photo_1280 !== 'undefined' ? item.photo.photo_1280 : item.photo.photo_604),
-                thumbnail: item.photo.photo_604,
-                thumbnailWidth: item.photo.width,
-                thumbnailHeight: item.photo.height,
-                caption: item.photo.text
+                width: item.photo.width,
+                height: item.photo.height
             })
         ))
 
-        if ( ! _.isEmpty(result)) {
-            return <Gallery
-                images={result}
-                enableImageSelection={false}
-                showCloseButton={false}
-                backdropClosesModal={true}
-                showImageCount={false}
-            />
+        if ( ! _.isEmpty(photos)) {
+            return <LazyLoad>
+                <Gallery
+                    photos={photos}
+                    onClick={this.clickHandler}
+                />
+            </LazyLoad>
         }
+    }
+
+    clickHandler = (event, { photo, index }) => {
+        this.setState({isOpen: true, photoIndex: photo.src})
     }
 }
 
