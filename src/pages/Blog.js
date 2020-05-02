@@ -35,7 +35,7 @@ class Blog extends Component {
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        const { postsData, activePage } = this.state
+        const { postsData } = this.state
 
         if (_.isEmpty(this.state.postsData) || this.props.vk_posts.items !== prevProps.vk_posts.items) {
             this.setState({
