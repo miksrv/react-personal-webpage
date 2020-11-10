@@ -1,6 +1,6 @@
 const data = [
   {
-    link: 'tg://resolve?domain=miksoft',
+    link: 'https://t.me/miksoft',
     label: 'Telegram',
     icon: 'telegram plane'
   },
