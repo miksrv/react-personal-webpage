@@ -49,7 +49,7 @@ const About = () => {
                                 <Grid.Column className='stat-val' width={10}>{updated}</Grid.Column>
                             </Grid.Row>
                         </Grid>
-                        <p>I develop websites, I write programs, I like to do something myself. I am fond of astronomy, photography, tourism, travel and radio electronics. There are several own micro-projects on which I can talk with pleasure.</p>
+                        <p>I develop websites, write programs, like to do something myself. I am fond of astronomy, photography, tourism / travel and radio electronics. There are several own micro-projects on which I can talk with pleasure.</p>
                         <p>Always open to communication with interesting people :)</p>
                     </Grid.Column>
                 </Grid.Row>

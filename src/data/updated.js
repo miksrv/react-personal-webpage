@@ -1,3 +1,3 @@
-const updated = '07.05.2020'
+const updated = '10.11.2020'
 
 export default updated
