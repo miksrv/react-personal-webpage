@@ -1,31 +1,25 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import {Grid, Icon, Image} from 'semantic-ui-react'
+import { Grid, Image } from 'semantic-ui-react'
 
-import Section from '../layouts/Section'
+import data from '../data/projects'
+import Section from "../layouts/Section";
 
 const Projects = () => {
+    console.log('window.screen.width', window.screen.width);
+
     return (
         <div id='projects'>
-            <Grid columns={3}>
-                <Grid.Row >
-                    <Grid.Column textAlign='center'>
-                        <Section>
-                            <a href={item.link} title={item.label}>
-                                <Image src='/images/project-observatory.jpg' fluid className='full-width' />
-                            </a>
-                        </Section>
-                    </Grid.Column>
-                    <Grid.Column textAlign='center'>
-                        <Section>
-                            <Image src='/images/project-orion.jpg' fluid className='full-width' />
-                        </Section>
-                    </Grid.Column>
-                    <Grid.Column textAlign='center'>
-                        <Section>
-                            <Image src='/images/project-greenexp.jpg' fluid className='full-width' />
-                        </Section>
-                    </Grid.Column>
+            <Grid columns={(window.screen.width > 600 ? 3 : 1)}>
+                <Grid.Row>
+                    {data.map((item, key) => (
+                        <Grid.Column textAlign='center' key={key}>
+                            <Section className='project-item'>
+                                <a href={item.link} title={item.label}>
+                                    <Image src={item.image} fluid className='full-width' />
+                                </a>
+                            </Section>
+                        </Grid.Column>
+                    ))}
                 </Grid.Row>
             </Grid>
         </div>
