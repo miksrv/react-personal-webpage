@@ -112,6 +112,10 @@ class Blog extends Component {
     }
 
     makeImages = data => {
+        if (_.isEmpty(data)) {
+            return ''
+        }
+
         const photos  = []
 
         data.filter(function(item) {

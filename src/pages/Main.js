@@ -5,6 +5,7 @@ import { Container } from 'semantic-ui-react'
 import About from '../views/About'
 import Social from '../views/Social'
 import Skills from '../views/Skills'
+import Projects from '../views/Projects'
 
 class Main extends Component {
     componentDidMount() {
@@ -17,6 +18,7 @@ class Main extends Component {
                 <Container>
                     <About />
                     <Social />
+                    <Projects />
                     <Skills />
                 </Container>
             </div>
