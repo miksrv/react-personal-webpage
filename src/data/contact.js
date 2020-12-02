@@ -5,7 +5,7 @@ const data = [
     icon: 'telegram plane'
   },
   {
-    link: 'https://vk.com/miktm',
+    link: 'https://vk.com/miksoft',
     label: 'Vkontakte',
     icon: 'vk'
   },

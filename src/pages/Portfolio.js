@@ -113,6 +113,7 @@ class Portfolio extends React.Component {
 
                     </Grid>
                 </Container>
+                <br />
             </div>
         )
     }
