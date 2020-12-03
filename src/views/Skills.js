@@ -9,13 +9,6 @@ import data from '../data/skills'
 const Skills = () => {
     return (
         <>
-            <Section className='skills'>
-                {tags.map((item, key) => (
-                    <Label color='gray' key={key}>
-                        {item}
-                    </Label>
-                ))}
-            </Section>
             <Section>
                 <Grid>
                     <Grid.Row>
@@ -28,6 +21,13 @@ const Skills = () => {
                     </Grid.Row>
                 </Grid>
             </Section>
+            <div className='skills'>
+                {tags.map((item, key) => (
+                    <Label color='green' key={key}>
+                        {item}
+                    </Label>
+                ))}
+            </div>
         </>
     )
 }
