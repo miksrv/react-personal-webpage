@@ -7,7 +7,7 @@ const Header = () => {
         <Menu fixed={'top'} color={'green'} secondary  inverted>
             <Container>
                 <Menu.Item as={NavLink} exact to='/'>About me</Menu.Item>
-                <Menu.Item as={NavLink} to='/portfolio'>Portfolio</Menu.Item>
+                <Menu.Item as={NavLink} to='/portfolio'>My works</Menu.Item>
                 <Menu.Item as={NavLink} to='/blog'>Personal blog</Menu.Item>
             </Container>
         </Menu>

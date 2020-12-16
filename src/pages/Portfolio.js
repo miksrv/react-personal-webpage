@@ -38,7 +38,7 @@ class Portfolio extends React.Component {
 
     clickHandler = (img, link) => {
         if (link !== '') {
-            return window.open(link, "_blank");
+            return window.open(link, "_blank")
         }
 
         this.setState({isOpen: true, photoIndex: img})

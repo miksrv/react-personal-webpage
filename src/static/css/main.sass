@@ -68,24 +68,14 @@ body
     box-shadow: none
 
 .ui.segment.project-item
-    padding: .5em !important
+    padding: .3em !important
+
+    img
+        border-radius: .3em
 
 .menu a
     font-size: .9em !important
     margin: .5em 0 !important
-
-// Hack for mobile menu container padding
-@media only screen and (max-width: 767px)
-    .ui.menu > .ui.container
-        margin-left: 1em !important
-        margin-right: 1em !important
-
-@import _header
-
-@import _about
-@import _social
-@import _skills
-@import _error404
 
 .vk-profile
     .avatar
@@ -142,3 +132,16 @@ body
 
 .ReactGridGallery
     margin-top: 20px
+
+// Hack for mobile menu container padding
+@media only screen and (max-width: 767px)
+    .ui.menu > .ui.container
+        margin-left: 1em !important
+        margin-right: 1em !important
+
+@import _header
+
+@import _about
+@import _social
+@import _skills
+@import _error404

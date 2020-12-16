@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-
 import { Grid, Divider, Image, Responsive } from 'semantic-ui-react'
 
 import Section from '../layouts/Section'
@@ -49,8 +48,8 @@ const About = () => {
                                 <Grid.Column className='stat-val' width={10}>{updated}</Grid.Column>
                             </Grid.Row>
                         </Grid>
-                        <p>I develop websites, write programs, like to do something myself. I am fond of astronomy, photography, tourism / travel and radio electronics. There are several own micro-projects on which I can talk with pleasure.</p>
-                        <p>Always open to communication with interesting people :)</p>
+                        <p>I am a developer, create interactive information systems and complex web projects from scratch, doing technical support. I am fond of programming, tourism, photography, astronomy, radio electronics and some other.</p>
+                        <p>I run my own projects and am always ready to communicate with interesting people. You can Contact me in any convenient way.</p>
                     </Grid.Column>
                 </Grid.Row>
             </Responsive>

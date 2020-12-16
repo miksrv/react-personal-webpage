@@ -19,7 +19,7 @@ const Social = () => {
                     {data.map((item, key) => (
                         <Grid.Column textAlign='center' width={count} key={key}>
                             <a href={item.link} title={item.label}>
-                                <Icon name={item.icon} size={'big'} />
+                                <Icon name={item.icon} size='big' />
                             </a>
                         </Grid.Column>
                     ))}
