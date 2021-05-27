@@ -8,7 +8,7 @@ import data from '../data/projects'
 const Projects = () => {
     return (
         <div id='projects'>
-            <Grid columns={(window.screen.width > 600 ? data.length : 1)}>
+            <Grid columns={(window.screen.width > 600 ? data.length : 2)}>
                 <Grid.Row>
                     {data.map((item, key) => (
                         <Grid.Column textAlign='center' key={key}>

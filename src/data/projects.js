@@ -5,8 +5,8 @@ const data = [
     image: '/images/projects/project-meteostation.jpg'
   },
   {
-    link: 'https://vk.com/openscope',
-    label: 'Openscope RAT',
+    link: 'https://observatory.miksoft.pro/',
+    label: 'Homemade observatory ',
     image: '/images/projects/project-observatory.jpg'
   },
   {
