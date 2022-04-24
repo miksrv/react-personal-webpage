@@ -1,0 +1,22 @@
+@import '../../styles/colors'
+
+.header
+  background-color: $green
+
+  .links
+    a
+      display: inline-block
+      background: 0
+      color: #fff
+      text-decoration: none
+      padding: .18571429em .92857143em
+      transition: color .1s ease
+      font-weight: 400
+      font-size: .9em
+      margin: .5em 0
+
+      &:hover
+        background-color: rgba(0,0,0,.1)
+
+    a.active
+      background-color: rgba(0,0,0,.1)

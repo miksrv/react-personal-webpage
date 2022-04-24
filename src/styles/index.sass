@@ -1,0 +1,52 @@
+$font-stack: Montserrat
+$text-color: #192A3E
+
+@font-face
+  font-family: 'Montserrat'
+  src : url('../fonts/Montserrat-Regular.woff')
+  font-weight: 400
+
+@font-face
+  font-family: 'Montserrat'
+  src : url('../fonts/Montserrat-Medium.woff')
+  font-weight: 500
+
+@font-face
+  font-family: 'Montserrat'
+  src : url('../fonts/Montserrat-Bold.woff')
+  font-weight: 700
+
+@font-face
+  font-family: 'Montserrat'
+  src : url('../fonts/Montserrat-ExtraBold.woff')
+  font-weight: 900
+
+*:not(.icon)
+  outline: none
+  font-family: $font-stack !important
+
+body
+  color: $text-color
+  font-weight-color: $text-color
+  font-weight: 400
+  font-size: 14px
+  line-height: 1.7rem
+  background-color: #efefef
+  margin: 0
+  background-image: url('../images/background-pattern.png')
+
+p
+  margin: 0 0 1em
+  line-height: 1.4285em
+
+.wrapper
+  -webkit-transition: opacity .4s ease-out
+  transition: opacity .4s ease-out
+  background: hsla(0,0%,87.8%,.7)
+  height: 100%
+  min-height: 100vh
+  padding-bottom: 2em
+
+.container
+  max-width: 800px
+  margin: 0 auto

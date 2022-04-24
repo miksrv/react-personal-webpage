@@ -5,17 +5,11 @@
 /.pnp
 .pnp.js
 
-# portfolio images
-/public/images/portfolio/*
-
 # testing
 /coverage
 
 # production
 /build
-
-# IDE files
-/.idea
 
 # misc
 .DS_Store
