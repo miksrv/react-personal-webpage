@@ -2,6 +2,7 @@
   .grid
     display: flex
     justify-content: space-between
+    flex-wrap: wrap
 
   .avatar
     max-height: 360px
@@ -11,6 +12,10 @@
 
   .describe
     width: 59%
+
+  @media screen and (max-width: 600px)
+    .avatar, .describe
+      width: 100%
 
   h1
     margin-bottom: 0
