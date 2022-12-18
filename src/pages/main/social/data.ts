@@ -1,4 +1,4 @@
-import { TIconNames } from '../../layouts/svgIcon'
+import { TIconNames } from 'components/svgIcon/SvgIcons'
 
 export type TContacts = {
     link: string
@@ -11,6 +11,11 @@ export const Data: TContacts[] = [
         link: 'https://t.me/miksoft',
         label: 'Telegram',
         icon: 'telegram'
+    },
+    {
+        link: 'https://www.linkedin.com/in/mikcatsvill/',
+        label: 'LinkedIn',
+        icon: 'linkedin'
     },
     {
         link: 'https://vk.com/miksoft',

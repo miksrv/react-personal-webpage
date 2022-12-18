@@ -1,9 +1,9 @@
 import React from 'react'
-import PageLayout from '../../layouts/page'
+import PageLayout from 'components/page-layout/PageLayout'
 
 import './index.sass'
 
-const Error: React.FC = () => {
+const ErrorPage: React.FC = () => {
     return (
         <PageLayout>
             <div className='error'>
@@ -15,4 +15,4 @@ const Error: React.FC = () => {
     )
 }
 
-export default Error
+export default ErrorPage

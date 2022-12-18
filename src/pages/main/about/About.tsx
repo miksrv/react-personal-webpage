@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Segment from '../../layouts/segment'
+import Segment from 'components/segment/Segment'
 import Avatar from './avatar.jpg';
 
 import './index.sass'
