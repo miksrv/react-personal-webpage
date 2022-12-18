@@ -1,7 +1,7 @@
 import React from 'react'
 import { Data } from './data'
 
-import Icon from '../../layouts/svgIcon'
+import SvgIcons from 'components/svgIcon/SvgIcons'
 
 import './index.sass'
 
@@ -10,7 +10,7 @@ const Social: React.FC = () => {
         <div className='social'>
             {Data.map((item) =>
                 <a href={item.link} title={item.label} key={item.link}>
-                    <Icon name={item.icon} />
+                    <SvgIcons name={item.icon} />
                 </a>
             )}
         </div>

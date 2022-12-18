@@ -4,12 +4,12 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import reportWebVitals from './reportWebVitals'
 
-import Header from './layouts/header'
-import Footer from './layouts/footer'
-import Main from './features/main'
-import Error from './features/error'
+import Header from 'components/header/Header'
+import Footer from 'components/footer/Footer'
+import MainPage from 'pages/main/MainPage'
+import ErrorPage from 'pages/error/ErrorPage'
 
-import './styles/index.sass'
+import 'styles/index.sass'
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -22,8 +22,8 @@ root.render(
               <Header/>
               <div className='container'>
                   <Routes>
-                      <Route index element={<Main/>} />
-                      <Route path='*' element={<Error/>} />
+                      <Route index element={<MainPage/>} />
+                      <Route path='*' element={<ErrorPage/>} />
                   </Routes>
               </div>
               <Footer/>

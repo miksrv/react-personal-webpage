@@ -2,9 +2,9 @@ import React from 'react'
 
 import { Data, Tags } from './data'
 
-import Segment from '../../layouts/segment'
-import Progress from '../../layouts/progress'
-import Label from '../../layouts/label'
+import Segment from 'components/segment/Segment'
+import Progress from 'components/progress/Progress'
+import Label from 'components/label/Label'
 
 import './index.sass'
 
