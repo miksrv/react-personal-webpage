@@ -32,7 +32,7 @@ jobs:
       - name: 👷‍ Build
         run: |
           export dateNow=$(date +"%d.%m.%Y")
-          echo "export const update = '$dateNow';" >> src/update.ts
+          echo "export const update = '$dateNow';" > src/update.ts
           npm run build --if-present
 
       - name: 📦 Get LFTP
