@@ -2,6 +2,7 @@ import React from 'react'
 
 import Segment from 'components/segment/Segment'
 import Avatar from './avatar.jpg';
+import {update} from 'update';
 
 import './index.sass'
 
@@ -50,7 +51,7 @@ const About: React.FC = () => {
                         </div>
                         <div className='grid grid-keys'>
                             <div className='key'>Updated</div>
-                            <div className='value'>25.04.2022</div>
+                            <div className='value'>{update}</div>
                         </div>
                         <p>I am a developer, create interactive information systems and complex web projects from scratch,
                             doing technical support. I am fond of programming, tourism, photography, astronomy,
