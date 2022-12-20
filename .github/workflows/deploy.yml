@@ -1,4 +1,4 @@
-name: 🚀 FTP Deploy
+name: FTP Deploy
 
 on:
   push:
@@ -12,25 +12,28 @@ jobs:
       - name: 🛒 Checkout
         uses: actions/checkout@v3
 
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: ⚙️ Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
           cache-dependency-path: package-lock.json
 
-      - name: Cache node_modules
+      - name: 📦 Cache node_modules
         uses: actions/cache@v2
         id: cache
         with:
           path: 'node_modules'
           key: ${{ runner.os }}-modules-${{ hashFiles('**/package-lock.json') }}
 
-      - name: Install
+      - name: 💿 Install
         run: npm ci
 
-      - name: Build
-        run: npm run build --if-present
+      - name: 👷‍ Build
+        run: |
+          export dateNow=$(date +"%d.%m.%Y")
+          echo "export const update = '$dateNow';" > src/update.ts
+          npm run build --if-present
 
       - name: 📦 Get LFTP
         run: sudo apt install lftp
@@ -40,9 +43,6 @@ jobs:
 
       - name: 🔑 Load Secrets
         run: echo "machine ${{ secrets.FTP_HOSTNAME }} login ${{ secrets.FTP_USERNAME }} password ${{ secrets.FTP_PASSWORD }}" > ~/.netrc
-
-      #- name: 📄 Delete Files
-      #  run: lftp -e "rm /static; bye" ${{ secrets.FTP_HOSTNAME }}
 
       - name: 📁 Upload Folder
         run: lftp -e "mirror --parallel=100 -R ./build/ /" ${{ secrets.FTP_HOSTNAME }}
