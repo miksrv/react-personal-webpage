@@ -1,7 +1,6 @@
 # Personal VCard
 
 [![Build & Test](https://github.com/miksrv/react-personal-webpage/actions/workflows/checks.yml/badge.svg)](https://github.com/miksrv/react-personal-webpage/actions/workflows/checks.yml)
-[![FTP Deploy](https://github.com/miksrv/react-personal-webpage/actions/workflows/deploy.yml/badge.svg)](https://github.com/miksrv/react-personal-webpage/actions/workflows/deploy.yml)
 
 [DEMO](https://miksoft.pro)
 
