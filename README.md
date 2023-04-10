@@ -1,5 +1,8 @@
 # Personal VCard
 
+### :warning: DEPRECATED :warning:
+See [NextJS VCard Project](https://github.com/miksrv/nextjs-vcard-project) Repository
+
 [![Build & Test](https://github.com/miksrv/react-personal-webpage/actions/workflows/checks.yml/badge.svg)](https://github.com/miksrv/react-personal-webpage/actions/workflows/checks.yml)
 
 [DEMO](https://miksoft.pro)
